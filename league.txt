@@ -1,0 +1,9 @@
+['Ekstraklasa',
+ 'Ligue 1',
+ 'Premier League',
+ 'Swiss Super League',
+ 'La Liga',
+ 'Primeira Liga',
+ 'Serie A',
+ 'Süper Lig',
+ 'Prva HNL']
