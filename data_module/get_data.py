@@ -4,6 +4,8 @@ import os
 import datetime
 import time
 
+from data_module.clean_data import wins
+
 def create_team_ids_dict():
     '''This function creates a dictionary out of a specified string of team ids and names'''
     team_ids = '81,610,100,65,110,524,503,109,98,57,78,108,113,95,92,548,559,613,600,58,62,755,341,103,115'.split(',')
@@ -24,8 +26,6 @@ def create_team_ids_dict():
     Real Sociedad
     AS Monaco 
     Sevilla FC
-    Aston Villa
-    Everton FC
     Leeds United
     Bologna FC
     Udinese Calcio'''
@@ -36,7 +36,7 @@ def create_team_ids_dict():
 
 
 def get_team_stats(team_ids_dict, 
-                   beginning_of_season = '2022-07-29', 
+                   beginning_of_season = '2020-04-17', 
                    end_of_season = '2023-05-08',
                    limit=100):
     
@@ -44,6 +44,8 @@ def get_team_stats(team_ids_dict,
         The dictionary is a result of calling get_team_ids function.
         Might get interrupted, but will run until all the data is gathered.
         This function returns a dataframe with columns = [competitions, first, last, played, wins, draws, losses, name, team_ids]'''
+
+    end_of_season = str(datetime.datetime.strptime(beginning_of_season, '%Y-%m-%d') + datetime.timedelta(days=740)).split(' ')[0]
 
     base_url = 'https://api.football-data.org'
     team_matches_endpoint = '/v4/teams/{id}/matches?dateFrom={datefrom}&dateTo={dateto}&limit={limit}&status=FINISHED'
@@ -58,9 +60,9 @@ def get_team_stats(team_ids_dict,
             # Your main code that may raise an error
             for name, id in team_ids_dict.items():
                 if name not in done:
-
+                    
                     name_=name
-                    print(f'Getting {name} data')
+                    print(f'Getting {name_} data')
 
                     url = base_url + team_matches_endpoint.format(
                         id=id, 
@@ -106,9 +108,12 @@ def get_team_stats(team_ids_dict,
     return pd.DataFrame(data)
 
 def get_historical_data(team_ids_dict,
-                        beginning_of_season = '2022-07-29',
+                        beginning_of_season = '2020-04-17',
                         end_of_season = '2023-05-08',
-                        limit=10):
+                        limit=1000):
+        
+        end_of_season = str(datetime.datetime.strptime(beginning_of_season, '%Y-%m-%d') + datetime.timedelta(days=740)).split(' ')[0]
+        print(end_of_season)
     
         base_url = 'https://api.football-data.org'
         team_matches_endpoint = '/v4/teams/{id}/matches?dateFrom={datefrom}&dateTo={dateto}&limit={limit}&status=FINISHED'
@@ -128,7 +133,7 @@ def get_historical_data(team_ids_dict,
                     if name not in done:
 
                         name_=name
-                        print(f'Getting {name} data')
+                        print(f'Getting {name_} data')
 
                         url = base_url + team_matches_endpoint.format(
                                                 id=id, 
@@ -151,6 +156,8 @@ def get_historical_data(team_ids_dict,
                         home_team_code = []
                         winner=[]
                         team=[]
+                        team_id=[]
+
 
 
                         for match in r['matches']:
@@ -161,6 +168,7 @@ def get_historical_data(team_ids_dict,
                                 away_team_code.append(match['awayTeam']['tla'])
                                 home_team_code.append(match['homeTeam']['tla'])
                                 team.append(name_)
+                                team_id.append(id)
 
                         team_df['winner']=winner
                         team_df['date']=date
@@ -169,6 +177,7 @@ def get_historical_data(team_ids_dict,
                         team_df['home_team']=home_team
                         team_df['home_team_code']=home_team_code
                         team_df['team_name']=team
+                        team_df['team_id']=team_id
 
                         total_df = pd.concat([total_df,team_df])
 
@@ -194,6 +203,9 @@ def get_historical_data(team_ids_dict,
 
                 except ValueError:
                     print('No time specified, moving onto next team')
-                    done.append(name_)
+                    del team_ids_dict[name_]
+
+        # Helper cleaning function:
+        total_df['wins']=total_df.apply(wins, axis=1)
         
         return total_df
