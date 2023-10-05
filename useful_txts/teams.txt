@@ -9,20 +9,20 @@ Juventus
 AC Milan
 Arsenal
 Atletico Madrid
-Trabzonspor 
+-- Trabzonspor 
 Inter Milan
 Napoli
 Valencia CF
-Young Boys
-Legia Warsaw
+-- Young Boys
+-- Legia Warsaw
 Real Sociedad
 AS Monaco 
 Sevilla FC
-Fenerbahçe
-Beşiktaş 
+-- Fenerbahçe
+-- Beşiktaş 
 Aston Villa
 Everton FC
-Dinamo Zagreb 
+-- Dinamo Zagreb 
 Leeds United
 Bologna FC
 Udinese Calcio
