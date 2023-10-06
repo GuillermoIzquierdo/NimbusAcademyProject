@@ -36,8 +36,8 @@ def create_team_ids_dict():
 
 
 def get_team_stats(team_ids_dict, 
-                   beginning_of_season = '2020-04-17', 
-                   end_of_season = '2023-05-08',
+                   beginning_date = '2020-04-17', 
+                   end_date = '',
                    limit=100):
     
     '''Gets team stats from a dictionary containing team names as keys and corresponding ids as values. 
@@ -45,7 +45,10 @@ def get_team_stats(team_ids_dict,
         Might get interrupted, but will run until all the data is gathered.
         This function returns a dataframe with columns = [competitions, first, last, played, wins, draws, losses, name, team_ids]'''
 
-    end_of_season = str(datetime.datetime.strptime(beginning_of_season, '%Y-%m-%d') + datetime.timedelta(days=740)).split(' ')[0]
+    if not end_date:
+        end_date = str(datetime.datetime.strptime(beginning_date, '%Y-%m-%d') + datetime.timedelta(days=740)).split(' ')[0]
+
+    print('Getting data from {beginning_date} to {end_date}'.format(beginning_date=beginning_date, end_date=end_date))
 
     base_url = 'https://api.football-data.org'
     team_matches_endpoint = '/v4/teams/{id}/matches?dateFrom={datefrom}&dateTo={dateto}&limit={limit}&status=FINISHED'
@@ -66,8 +69,8 @@ def get_team_stats(team_ids_dict,
 
                     url = base_url + team_matches_endpoint.format(
                         id=id, 
-                        datefrom=beginning_of_season, 
-                        dateto=end_of_season,
+                        datefrom=beginning_date, 
+                        dateto=end_date,
                         limit=limit
                         )
 
@@ -108,12 +111,14 @@ def get_team_stats(team_ids_dict,
     return pd.DataFrame(data)
 
 def get_historical_data(team_ids_dict,
-                        beginning_of_season = '2020-04-17',
-                        end_of_season = '2023-05-08',
+                        beginning_date = '2020-04-17',
+                        end_date = '',
                         limit=1000):
         
-        end_of_season = str(datetime.datetime.strptime(beginning_of_season, '%Y-%m-%d') + datetime.timedelta(days=740)).split(' ')[0]
-        print(end_of_season)
+        if not end_date:
+            end_date = str(datetime.datetime.strptime(beginning_date, '%Y-%m-%d') + datetime.timedelta(days=740)).split(' ')[0]
+        
+        print('Getting data from {beginning_date} to {end_date}'.format(beginning_date=beginning_date, end_date=end_date))
     
         base_url = 'https://api.football-data.org'
         team_matches_endpoint = '/v4/teams/{id}/matches?dateFrom={datefrom}&dateTo={dateto}&limit={limit}&status=FINISHED'
@@ -137,8 +142,8 @@ def get_historical_data(team_ids_dict,
 
                         url = base_url + team_matches_endpoint.format(
                                                 id=id, 
-                                                datefrom=beginning_of_season, 
-                                                dateto=end_of_season,
+                                                datefrom=beginning_date, 
+                                                dateto=end_date,
                                                 limit=limit
                                                 )
 
