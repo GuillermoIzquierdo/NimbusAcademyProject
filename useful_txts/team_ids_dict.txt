@@ -1,5 +1,5 @@
 {'FC Barcelona': '81',
- 'Galatasaray': '610',
+ -- 'Galatasaray': '610',
  'AS Roma': '100',
  'Manchester City': '65',
  'S.S. Lazio': '110',
