@@ -4,7 +4,7 @@ import os
 import datetime
 import time
 
-from data_module.clean_data import wins
+from raw_data_module.clean_data import wins
 
 def create_team_ids_dict():
     '''This function creates a dictionary out of a specified string of team ids and names'''
