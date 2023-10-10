@@ -1,24 +1,18 @@
+import os
 import pandas as pd
 from snowflake import connector
+import credentials.credentials as c
 
 def fetch_data():
-    #setting credentials
-    import os
-    os.environ["SNOWSQL_USR"] = 'pp_guillermo' #insert username
-    os.environ["SNOWSQL_PWD"] = 'LionelMessi10' #insert password
-    os.environ["SNOWSQL_ACC"] = 'sx14805.west-europe.azure'
-    os.environ["SNOWSQL_WH"] = 'COMPUTE_WH'
-    os.environ["SNOWSQL_DB"] = 'PYTHON_PROJECT'
-    os.environ["SNOWSQL_SCH"] = 'PUBLIC'
 
     # Connect to Snowflake
     conn = connector.connect(
-        user=os.getenv('SNOWSQL_USR'),
-        password=os.getenv('SNOWSQL_PWD'),
-        account=os.getenv('SNOWSQL_ACC'),
-        warehouse=os.getenv('SNOWSQL_WH'),
-        database=os.getenv('SNOWSQL_DB'),
-        schema=os.getenv('SNOWSQL_SCH')
+        user=c.SNOWSQL_USR,
+        password=c.SNOWSQL_PWD,
+        account=c.SNOWSQL_ACC,
+        warehouse=c.SNOWSQL_WH,
+        database=c.SNOWSQL_DB,
+        schema=c.SNOWSQL_SCH
     )
 
     # Create a cursor object

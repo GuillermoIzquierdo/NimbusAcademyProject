@@ -4,7 +4,39 @@ import os
 import datetime
 import time
 
-from raw_data_module.clean_data import wins
+def wins(r):
+    if r['winner'] == 'DRAW':
+        return 'D'
+    if r['winner'] == 'HOME_TEAM':
+        if r['home_team_code_x'] == r['team_code']:
+            return 'W'
+        return 'L'
+    if r['winner'] == 'AWAY_TEAM':
+        if r['away_team_code'] == r['team_code']:
+            return 'W'
+        return 'L'
+
+team_ids_dict= {'FC Barcelona': '81',
+ 'AS Roma': '100',
+ 'Manchester City': '65',
+ 'S.S. Lazio': '110',
+ 'Paris Saint-Germain': '524',
+ 'FC Porto': '503',
+ 'Juventus ': '109',
+ 'AC Milan': '98',
+ 'Arsenal': '57',
+ 'Atletico Madrid': '78',
+ 'Inter Milan': '108',
+ 'Napoli': '113',
+ 'Valencia CF': '95',
+ 'Real Sociedad': '92',
+ 'AS Monaco ': '548',
+ 'Sevilla FC': '559',
+ 'Aston Villa': '58',
+ 'Everton FC': '62',
+ 'Leeds United': '341',
+ 'Bologna FC': '103',
+ 'Udinese Calcio': '115'}
 
 def create_team_ids_dict():
     '''This function creates a dictionary out of a specified string of team ids and names'''
@@ -110,7 +142,7 @@ def get_team_stats(team_ids_dict,
 
     return pd.DataFrame(data)
 
-def get_historical_data(team_ids_dict,
+def get_historical_data(team_ids_dict=team_ids_dict,
                         beginning_date = '2020-04-17',
                         end_date = '',
                         limit=1000):
@@ -210,7 +242,18 @@ def get_historical_data(team_ids_dict,
                     print('No time specified, moving onto next team')
                     del team_ids_dict[name_]
 
-        # Helper cleaning function:
+        # Cleaning:
+
+        # Create a code series and merge the code to df:
+        code_series = total_df.groupby('team_name').agg(pd.Series.mode)['home_team_code']
+        total_df = total_df.set_index('team_name').merge(code_series, left_index=True, right_index=True).reset_index().rename(columns={'home_team_code_y':'team_code'})
+
+        # Create wins column:
         total_df['wins']=total_df.apply(wins, axis=1)
-        
+
+        # Drop undesired columns
+        total_df.drop(columns=['winner', 'away_team', 'away_team_code', 'home_team', 'home_team_code_x'], inplace=True)
+
+        print(total_df.columns)
+
         return total_df

@@ -66,7 +66,7 @@ def matches_price_viz(team_hist_df,
     return fig
 
 def matches_volume_viz(team_hist_df,
-                      fan_tokens_df,
+                       fan_tokens_df,
                       team_name,
                       start_date='2020-06-25',
                       end_date='2023-10-01'):
@@ -81,7 +81,7 @@ def matches_volume_viz(team_hist_df,
     # Use id to get relevant token rows
     team_tokens = fan_tokens_df[fan_tokens_df['common_id'] == id]
 
-    # Date filtering:
+    # Date filtering and merging:
     team_tokens['date_f'] = pd.to_datetime(team_tokens['date'])
     team_df = team_matches.merge(team_tokens, on='date')
     team_df = team_df[(pd.to_datetime(start_date) < team_df['match_date']) & (team_df['match_date'] < pd.to_datetime(end_date))]
@@ -124,4 +124,47 @@ def matches_volume_viz(team_hist_df,
     fig.update_yaxes(title="Volume")
     fig.update_layout(showlegend=False)
 
+    return fig
+
+def performace_viz(team_hist_df,
+                    teams,
+                    start_date='2020-06-25',
+                    end_date='2023-10-01'):
+    
+    # Filter by teams:
+    team_df=team_hist_df[team_hist_df['team_name_matches'].isin(teams)]
+
+    # Filter by date:
+    team_df = team_df[(pd.to_datetime(start_date) < team_df['match_date']) & (team_df['match_date'] < pd.to_datetime(end_date))]
+
+    # Create a dataframe quantifying performance:
+    count_df = team_df.groupby(['team_name_matches', 'result']).agg({'result':'count'}).rename(columns={'result':'count'}).reset_index(level=[0,1])
+    total_matches_df = count_df.groupby('team_name_matches').agg({'count':'sum'}).rename(columns={'count':'total'}).reset_index()
+    performance_df = count_df.merge(total_matches_df, on='team_name_matches')
+
+    # Create percentage format:
+    performance_df['percentage'] = performance_df.apply(lambda row: round(row['count'] / row['total'] * 100, 2), axis=1)
+
+    # Prettify for plotting:
+    performance_df.sort_values(['percentage', 'result'], inplace=True)
+    result_dict = {
+        'W':'Wins',
+        'D':'Draws',
+        'L':'Losses'
+    }
+    performance_df['Match Outcome']=performance_df['result'].apply(lambda x: result_dict[x])
+
+    # Create figure with bar:
+    fig = px.bar(performance_df, 
+             y='team_name_matches', 
+             x='percentage', 
+             color='Match Outcome', 
+             labels={
+                 'team_name_matches':'Teams',
+                 'percentage':'Percentage'
+             }, 
+             title='Team Outcomes as Percentage of Total Matches',
+             color_discrete_sequence=['#e4745c', '#f4dc34', '#c1dc44'])
+    
+    # Return figure for plotting:
     return fig

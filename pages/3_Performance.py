@@ -15,7 +15,11 @@ start_date = datetime.datetime.strptime(start_date_str, '%Y-%m-%d').date()
 end_date = datetime.datetime.strptime(end_date_str, '%Y-%m-%d').date()
 
 start_date = st.date_input("Select a starting date:", start_date, min_value=start_date, max_value=end_date)
-end_date = st.date_input("Select an ending date:", end_date, min_value=start_date, max_value=end_date)
+if start_date: 
+    end_date = st.date_input("Select an ending date:", end_date, min_value=start_date, max_value=end_date)
+
+
+# team_hist_df, fan_tokens_df = get_data_from_sf.fetch_data()
 
 teams = ['AC Milan', 'AS Roma', 'Arsenal', 'Aston Villa', 'Atletico Madrid',
         'Bologna FC', 'Everton FC', 'FC Barcelona', 'FC Porto',
@@ -23,33 +27,13 @@ teams = ['AC Milan', 'AS Roma', 'Arsenal', 'Aston Villa', 'Atletico Madrid',
         'Paris Saint-Germain', 'Real Sociedad', 'S.S. Lazio', 'Sevilla FC',
         'Udinese Calcio', 'Valencia CF']
 
-team_name = st.selectbox('Select your favourite team', teams)
+if end_date:
+    teams = st.multiselect('Select your favourite team', teams)
 
-if start_date and end_date and team_name:
-
-    team_hist_df, fan_tokens_df = get_data_from_sf.fetch_data()
-
-    fig = hist_viz.matches_price_viz(team_hist_df=team_hist_df, 
-                                     fan_tokens_df=fan_tokens_df, 
-                                     team_name=team_name, 
-                                     start_date=start_date,
-                                     end_date=end_date)
-    st.plotly_chart(fig)
-
-    fig = hist_viz.matches_volume_viz(team_hist_df=team_hist_df, 
-                                     fan_tokens_df=fan_tokens_df, 
-                                     team_name=team_name, 
-                                     start_date=start_date,
-                                     end_date=end_date)
-    st.plotly_chart(fig)
-
-teams = st.multiselect('Select your favourite team', teams)
-
-if start_date and end_date and teams:
+if teams:
     team_hist_df, fan_tokens_df = get_data_from_sf.fetch_data()
     fig = hist_viz.performace_viz(team_hist_df=team_hist_df, 
                                      teams=teams, 
                                      start_date=start_date,
                                      end_date=end_date)
     st.plotly_chart(fig)
-
