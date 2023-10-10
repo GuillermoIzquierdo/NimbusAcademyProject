@@ -210,4 +210,4 @@ def upload_helper_table():
                     ('udinese', 'Udinese Calcio', 20),
                     ('valencia', 'Valencia CF', 21)]
      
-
+     return helper_table_data
