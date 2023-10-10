@@ -3,6 +3,7 @@ import requests
 import os
 import datetime
 import time
+import credentials.credentials as c
 
 def wins(r):
     if r['winner'] == 'DRAW':
@@ -85,7 +86,7 @@ def get_team_stats(team_ids_dict,
     base_url = 'https://api.football-data.org'
     team_matches_endpoint = '/v4/teams/{id}/matches?dateFrom={datefrom}&dateTo={dateto}&limit={limit}&status=FINISHED'
 
-    headers = {'X-Auth-Token': 'e5be8e867150491590a74c42e7c265b4'}
+    headers = {'X-Auth-Token': c.FOOTBALL_API_KEY}
     done=[]
     data=[]
     name_ = ''
@@ -154,7 +155,8 @@ def get_historical_data(team_ids_dict=team_ids_dict,
     
         base_url = 'https://api.football-data.org'
         team_matches_endpoint = '/v4/teams/{id}/matches?dateFrom={datefrom}&dateTo={dateto}&limit={limit}&status=FINISHED'
-        headers = {'X-Auth-Token': 'e5be8e867150491590a74c42e7c265b4'}
+        
+        headers = {'X-Auth-Token': c.FOOTBALL_API_KEY}
 
         done=[]
         name_ = ''
