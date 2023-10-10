@@ -1,0 +1,325 @@
+[33mcommit 92be532a8046cd91cdcd70bd94f4e04dd0ba9e92[m[33m ([m[1;36mHEAD -> [m[1;32mstacked_bchart[m[33m, [m[1;31morigin/stacked_bchart[m[33m)[m
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Mon Oct 9 10:48:28 2023 +0200
+
+    this file can be deleted
+
+[33mcommit b999d743e2247442a183a490396832f8178226a3[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Merge: 0c41466 4dde9f1
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Mon Oct 9 10:02:26 2023 +0200
+
+    Merge pull request #6 from GuillermoIzquierdo/splitting
+    
+    splitting notebook in get_data and snowflake_up
+
+[33mcommit 4dde9f1ae620881fc1e2f750a78cdcc08fc16e25[m[33m ([m[1;31morigin/splitting[m[33m)[m
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Mon Oct 9 09:59:16 2023 +0200
+
+    splitting notebook in get_data and snowflake_up
+
+[33mcommit 0c41466e6bde82eb1d73b1492801e5bf6fd573b4[m[33m ([m[1;31morigin/fantoken_split[m[33m)[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Mon Oct 9 09:44:47 2023 +0200
+
+    little changes ups
+
+[33mcommit 1ead552ba835aa07c53e45e7a7f9fbbc8444857e[m
+Merge: 3237000 fa84d97
+Author: GuillermoIzquierdo <108685829+GuillermoIzquierdo@users.noreply.github.com>
+Date:   Sun Oct 8 21:19:42 2023 +0200
+
+    Merge pull request #5 from GuillermoIzquierdo/little_eda_and_viz
+    
+    Terrible news from EDA...
+
+[33mcommit fa84d979c53393dd11375cbade3f75ed1e0f0dab[m[33m ([m[1;31morigin/little_eda_and_viz[m[33m)[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Sun Oct 8 21:19:06 2023 +0200
+
+    Terrible news from EDA...
+
+[33mcommit 3237000bd0a2fbe331b57f50994a4b5aa2535008[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Fri Oct 6 15:14:52 2023 +0200
+
+    lil
+
+[33mcommit 7451b429448122d68ed5816235e0b7b9d4dd81d5[m
+Merge: d758b6b be6d3b6
+Author: GuillermoIzquierdo <108685829+GuillermoIzquierdo@users.noreply.github.com>
+Date:   Fri Oct 6 15:12:06 2023 +0200
+
+    Merge pull request #4 from GuillermoIzquierdo/snowflake_connect_football_data
+    
+    Finally uploaded football data to Snowflake
+
+[33mcommit be6d3b61ebd3e8274d0604bcd116002f8800b52e[m
+Merge: d5c1e12 d758b6b
+Author: GuillermoIzquierdo <108685829+GuillermoIzquierdo@users.noreply.github.com>
+Date:   Fri Oct 6 15:11:59 2023 +0200
+
+    Merge branch 'main' into snowflake_connect_football_data
+
+[33mcommit d5c1e128aad0c01459e40ab9d7513f3a5a3ae58a[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Fri Oct 6 15:03:08 2023 +0200
+
+    Finally uploaded football data to Snowflake
+
+[33mcommit d758b6b270ee516a7c49d737a0afaf545e7764b8[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Fri Oct 6 10:23:56 2023 +0200
+
+    Little changes
+
+[33mcommit 3b340adecbc3d5d31a5e8e3f17a42c4e5c76c0ac[m
+Merge: e3c2eb7 b0ca3d1
+Author: GuillermoIzquierdo <108685829+GuillermoIzquierdo@users.noreply.github.com>
+Date:   Thu Oct 5 17:51:58 2023 +0200
+
+    Merge pull request #3 from GuillermoIzquierdo/snowflake_connect_football_data
+    
+    football api fixes
+
+[33mcommit b0ca3d1ea5a4eaeb491ede0d92d48938c8c2895e[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Thu Oct 5 17:50:20 2023 +0200
+
+    football api fixes
+
+[33mcommit e3c2eb7f6041c95ea193dc9c82762b7722d0605b[m
+Merge: eafe519 966d3f5
+Author: GuillermoIzquierdo <108685829+GuillermoIzquierdo@users.noreply.github.com>
+Date:   Thu Oct 5 14:43:53 2023 +0200
+
+    Merge pull request #2 from GuillermoIzquierdo/football_api
+    
+    Football api
+
+[33mcommit 966d3f59c574641b854dbfc0e755126830bcc0a0[m[33m ([m[1;31morigin/football_api[m[33m)[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Thu Oct 5 14:40:42 2023 +0200
+
+    commit test.py
+
+[33mcommit 7c5da66bf6d6f38825a69ddd9b1edad9c50c1e3a[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Thu Oct 5 14:36:55 2023 +0200
+
+    get_historical data now works!
+
+[33mcommit 547fe51a7aa34cd3113ba925b9ca03c7328f0bec[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Thu Oct 5 14:04:20 2023 +0200
+
+    get metrics works, now working on get historical
+
+[33mcommit eafe519c2cf6da98a4b12843cec6def646c0fd01[m
+Merge: 9e5ecf0 629ffd8
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Thu Oct 5 11:32:36 2023 +0200
+
+    Resolved merge conflict for Notebooks/fan_token_API_call.ipynb
+
+[33mcommit 629ffd823eb928d3423f73b75737c6d6bab735a1[m
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Thu Oct 5 11:24:41 2023 +0200
+
+    NO KEYS fan_token_API_call upload to snowflake
+
+[33mcommit 9e5ecf08f113e5b717540ecf3b65f99e5c7edeed[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Thu Oct 5 11:21:38 2023 +0200
+
+    Delete Notebooks/fan_token_API_call.ipynb
+
+[33mcommit ad7fec8e867ecd20d1098113f8a915aa623aa17c[m
+Merge: dbd4e07 6387bd2
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Thu Oct 5 09:25:26 2023 +0200
+
+    Merge branch 'main' of https://github.com/GuillermoIzquierdo/NimbusAcademyProject
+
+[33mcommit dbd4e074444ccb394154ce7867fcfed9a1de3ebb[m
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Thu Oct 5 09:25:25 2023 +0200
+
+    Committing changes before working on importing data on Snowflake
+
+[33mcommit 6387bd2a5e89f2653471bc14d8b17a5657e40565[m
+Merge: 8d6403c 8d5f7a1
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Thu Oct 5 09:21:24 2023 +0200
+
+    Merge branch 'main' of https://github.com/GuillermoIzquierdo/NimbusAcademyProject
+
+[33mcommit 8d6403cad50727f77b6dc9e1aaec632c5ddd9d3c[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Thu Oct 5 09:20:49 2023 +0200
+
+    Packaged module get_data, get_team_stats
+
+[33mcommit 8d5f7a15c7d4374d657bd683749b4404e9fbacae[m[33m ([m[1;31morigin/uploading-fan-token-data-to-snowflake[m[33m)[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Thu Oct 5 09:16:03 2023 +0200
+
+    Rename fan_token_API_call.ipynb to Notebooks/fan_token_API_call.ipynb
+
+[33mcommit 8916b202a546e9e545b2748df07dc441145aa8fe[m
+Merge: 8492e5a 6c4086f
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Wed Oct 4 17:37:50 2023 +0200
+
+    Merge branch 'main' of https://github.com/GuillermoIzquierdo/NimbusAcademyProject
+
+[33mcommit 8492e5a2e1effb10537318f67d62015cea2ce00c[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Wed Oct 4 17:36:15 2023 +0200
+
+    football_api day wednesday commit
+
+[33mcommit 6c4086fcb27d30a24675c8715654c329f934866c[m
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Wed Oct 4 16:11:18 2023 +0200
+
+    fan tokens dataframe final with cleaned data 1
+
+[33mcommit 2ef11254f5f12b0a1755978284c5bcfbc46aeb0d[m[33m ([m[1;31morigin/Connecting-to-snowflake[m[33m)[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Wed Oct 4 11:33:41 2023 +0200
+
+    Delete Notebooks/fan_token_API_call.ipynb
+
+[33mcommit dcd15c40bb8585a5299ae5634f305f28e0a1ef5d[m
+Merge: 48f6c4c 1461bf1
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Wed Oct 4 11:33:22 2023 +0200
+
+    Merge branch 'main' of https://github.com/GuillermoIzquierdo/NimbusAcademyProject
+
+[33mcommit 48f6c4c522acb3b088d523630901eeb1d662f239[m
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Wed Oct 4 11:31:50 2023 +0200
+
+    Committing final API call for fan_tokens
+
+[33mcommit 1461bf186620926a6431c236a64d870378ba5eb1[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Wed Oct 4 11:29:48 2023 +0200
+
+    Add files via upload
+
+[33mcommit 6235f558b6af303d515d5333fff270c7111fc666[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Wed Oct 4 09:46:17 2023 +0200
+
+    forgot to make a branch
+
+[33mcommit 5be4c6f9384585070c210f1d168b4f36db2922f1[m
+Merge: d1231b3 e8e010b
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Wed Oct 4 09:41:56 2023 +0200
+
+    Merge branch 'main' of https://github.com/GuillermoIzquierdo/NimbusAcademyProject
+
+[33mcommit e8e010b15691909159610ff67bb1238e6e8cd6e0[m
+Merge: 9a9f211 afea06d
+Author: GuillermoIzquierdo <108685829+GuillermoIzquierdo@users.noreply.github.com>
+Date:   Wed Oct 4 09:36:24 2023 +0200
+
+    Merge pull request #1 from GuillermoIzquierdo/fan_token_api
+    
+    Fan token api
+
+[33mcommit d1231b335cbe243f11c3ef2cf11d6c816804c199[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Tue Oct 3 16:28:04 2023 +0200
+
+    football api commit first attempt
+
+[33mcommit afea06db83382f118902a012288686ddef2d601c[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Tue Oct 3 15:55:08 2023 +0200
+
+    Delete test2.txt
+
+[33mcommit b83e520ed41e8a7df1621abad2c0b63dca7c6475[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Tue Oct 3 15:54:57 2023 +0200
+
+    Delete streamlit_tutorial.ipynb
+
+[33mcommit 048eda6c819e344ab7406ff84830958e94659e78[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Tue Oct 3 15:54:42 2023 +0200
+
+    Delete crypto_project.ipynb
+
+[33mcommit 07d2db452f04f23ac3ae9eaec4805f2e0f1ecde3[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Tue Oct 3 15:54:18 2023 +0200
+
+    Delete iris.py
+
+[33mcommit f54b13917ed0f8d9a1e578448b299f3f3701c0a3[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Tue Oct 3 15:53:30 2023 +0200
+
+    Delete text.txt
+
+[33mcommit 3f573e7c954eaa1f854333d104f135dcf2629787[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Tue Oct 3 15:53:23 2023 +0200
+
+    Delete test.py
+
+[33mcommit 0cdf0abb2490a03da2d2bd138048e21829e8456c[m
+Author: darko-nimbus <144227582+darko-nimbus@users.noreply.github.com>
+Date:   Tue Oct 3 15:53:10 2023 +0200
+
+    Delete Exploring the Iris dataset.py
+
+[33mcommit d25b5b1533035258dca73e0d2f0106b46bc51e72[m
+Merge: 918d48a 9a9f211
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Tue Oct 3 15:52:21 2023 +0200
+
+    Merge branch 'fan_token_api' of https://github.com/GuillermoIzquierdo/NimbusAcademyProject into fan_token_api
+
+[33mcommit 918d48ab6a44c4f2ef52da4ce895785880f1f17a[m
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Tue Oct 3 15:49:48 2023 +0200
+
+    Initial commit Fan_tokens
+
+[33mcommit 52fc4589b278f1cd0ca576251e762b1dccc818e1[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Darko <darko.compagnoni@nimbusintelligence.com>
+Date:   Tue Oct 3 15:32:08 2023 +0200
+
+    Initial commit Fan_tokens
+
+[33mcommit 9a9f211be68fc80c8afb30a946cb1b856695baf2[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Tue Oct 3 14:59:14 2023 +0200
+
+    football_api first steps
+
+[33mcommit 6f516c700e62818d0212159af7095f39f6d00c3b[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Tue Oct 3 10:48:16 2023 +0200
+
+    testing5
+
+[33mcommit 2a83269ffc7e5b016c1f249ef0db937f66ac670a[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Tue Oct 3 10:44:13 2023 +0200
+
+    testing4
+
+[33mcommit e7641bbf7bdda0994c5b664e2014d1c572633f08[m
+Author: Guillermo Izquierdo <6guishe@gmail.com>
+Date:   Tue Oct 3 10:36:27 2023 +0200
+
+    testing
