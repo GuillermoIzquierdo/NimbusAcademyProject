@@ -1,3 +1,4 @@
+import datetime
 import credentials.credentials as c
 import requests
 import pandas as pd
@@ -36,6 +37,8 @@ def upload_football_data_to_sf():
     for row in results:
             print(row)
 
+    # Get data 
+    # Remember to specify beginning and end date!
     team_hist_df = get_data_football.get_historical_data()
 
     #Define the upload query
@@ -207,4 +210,4 @@ def upload_helper_table():
                     ('udinese', 'Udinese Calcio', 20),
                     ('valencia', 'Valencia CF', 21)]
      
-     
+
