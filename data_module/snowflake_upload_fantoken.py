@@ -5,7 +5,7 @@ import snowflake.connector
 import os
 os.environ["SNOWSQL_USR"] = '' #insert username
 os.environ["SNOWSQL_PWD"] = '' #insert password
-os.environ["SNOWSQL_ACC"] = 'sx14805.west-europe.azure'
+os.environ["SNOWSQL_ACC"] = 'yk87134.west-europe.azure'
 os.environ["SNOWSQL_WH"] = 'COMPUTE_WH'
 os.environ["SNOWSQL_DB"] = 'PYTHON_PROJECT'
 os.environ["SNOWSQL_SCH"] = 'PUBLIC'
