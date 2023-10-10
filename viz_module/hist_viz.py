@@ -41,7 +41,7 @@ def matches_price_viz(team_hist_df,
     }
 
     # Create a Plotly Express scatter plot for team prices:
-    fig = px.line(team_tokens, x='date', y='price', title=f"Matches and Price Visualization for {team_name}")
+    fig = px.line(team_tokens, x='date', y='price', title=f"Matches and Fan Token Price for {team_name}")
     fig.update_traces(hoverinfo='skip', hovertemplate=None)
 
     # Add scatter points for match results with pop-up text:
@@ -102,7 +102,7 @@ def matches_volume_viz(team_hist_df,
     }
 
     # Create a Plotly Express scatter plot for team prices:
-    fig = px.line(team_tokens, x='date', y='volume', title=f"Matches and Volume Visualization for {team_name}")
+    fig = px.line(team_tokens, x='date', y='volume', title=f"Matches and Fan Token Volume for {team_name}")
     fig.update_traces(hoverinfo='skip', hovertemplate=None)
 
     # Add scatter points for match results with pop-up text:
@@ -146,13 +146,22 @@ def performace_viz(team_hist_df,
     performance_df['percentage'] = performance_df.apply(lambda row: round(row['count'] / row['total'] * 100, 2), axis=1)
 
     # Prettify for plotting:
-    performance_df.sort_values(['percentage', 'result'], inplace=True)
+    
     result_dict = {
         'W':'Wins',
         'D':'Draws',
         'L':'Losses'
     }
+
+    order_dict = {
+        'W':1,
+        'D':2,
+        'L':3
+    }
+
+    performance_df['result_order']=performance_df['result'].apply(lambda x: order_dict[x])
     performance_df['Match Outcome']=performance_df['result'].apply(lambda x: result_dict[x])
+    performance_df.sort_values(['result_order', 'percentage'], inplace=True, ascending=[True, False])
 
     # Create figure with bar:
     fig = px.bar(performance_df, 
@@ -163,8 +172,9 @@ def performace_viz(team_hist_df,
                  'team_name_matches':'Teams',
                  'percentage':'Percentage'
              }, 
-             title='Team Outcomes as Percentage of Total Matches',
-             color_discrete_sequence=['#e4745c', '#f4dc34', '#c1dc44'])
+             title='Team Performance as Percentage of Total Matches',
+             color_discrete_sequence=['#c1dc44', '#f4dc34', '#e4745c']
+             )
     
     # Return figure for plotting:
     return fig
