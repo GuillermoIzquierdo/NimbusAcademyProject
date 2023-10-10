@@ -6,7 +6,7 @@ import datetime
 from clean_data_module import get_data_from_sf
 from viz_module import hist_viz
 
-st.title('Welcome to ...!')
+st.title('Fan Token Dashboard')
 
 start_date_str = '2020-01-01'
 end_date_str = '2023-12-31'
@@ -23,7 +23,7 @@ teams = ['AC Milan', 'AS Roma', 'Arsenal', 'Aston Villa', 'Atletico Madrid',
         'Paris Saint-Germain', 'Real Sociedad', 'S.S. Lazio', 'Sevilla FC',
         'Udinese Calcio', 'Valencia CF']
 
-team_name = st.selectbox('Select your favourite team', teams)
+team_name = st.selectbox('Select a team', teams)
 
 if start_date and end_date and team_name:
 
@@ -43,7 +43,7 @@ if start_date and end_date and team_name:
                                      end_date=end_date)
     st.plotly_chart(fig)
 
-teams = st.multiselect('Select your favourite team', teams)
+teams = st.multiselect('Select one or more teams', teams)
 
 if start_date and end_date and teams:
     team_hist_df, fan_tokens_df = get_data_from_sf.fetch_data()
